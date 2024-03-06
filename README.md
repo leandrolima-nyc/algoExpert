@@ -11,26 +11,25 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-[![](https://img.shields.io/badge/language-Swift-green.svg)]()
-[![](https://img.shields.io/badge/language-JavaScript-red.svg)]()
+[![language-js]](#)
+[![language-swift]](#)
 
 
-<h4 align="center">A collection of solutions for all problem I solved in JavaScript and Swift on the AlgoExpert Coding Interview platform.</h4>
-
-<h4 align="center">Show your support by giving it a STAR</h4>
+<h4 align="center">A compilation of solutions for all the problems I've solved from the AlgoExpert Coding Interview platform.</h4>
 
 <p align="center">
-  <a href="#AlgoExpert">AlgoExpert.io</a> •
-  <a href="#How-To">How-To</a>
+  <a href="#">
+    <img src="https://skillicons.dev/icons?i=git,js,swift" />
+  </a>
 </p>
+
+<h4 align="center">Show your support by giving it a STAR 🌟</h4>
 
 [js-icon]:icons/javascript.svg
 [swift-icon]:icons/swift.svg
 [js-icon-grey]:icons/javascript-grey.svg
 [swift-icon-grey]:icons/swift-grey.svg
 
-
-## AlgoExpert
 <div align="center">
 
 | Problem Statement                     | Difficulty       |       Category      | Solutions                                                              
@@ -194,18 +193,14 @@
 | Suffix Trie Construction              | 🟦               | Tries               | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | 
 | Multi String Search                   | 🟥               | Tries               | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | 
 
+| Color  | Description                                                                   
+| :---:  | :---             
+🟩 | Easy
+🟦 | Medium
+🟥 | Hard
+⬛ | Very Hard
 </div>
 
-🟩  Easy
-<br/>
-🟦 Medium
-<br/>
-🟥 Hard
-<br/>
-⬛ Very Hard
-<br/>
-
-## How-TO
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -227,5 +222,8 @@
 [license-url]: https://github.com/leandrolima-nyc/algoExpert/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg??style=flat&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/leandrolima-nyc/
+
+[language-js]: https://img.shields.io/badge/language-JavaScript-red.svg
+[language-swift]: https://img.shields.io/badge/language-Swift-green.svg
 
 
