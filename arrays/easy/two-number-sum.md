@@ -6,10 +6,10 @@ Given an array of distinct integers and an integer representing the target sum, 
 
 
 <div align="center">
-  <a href="#">Brute Force</a> •
-  <a href="#">Two Pass with Hash Table</a> •
-  <a href="#">One Pass with Hash Table</a> •
-  <a href="#">Sort + Two Pointers</a>
+  <a href="approach-1-brute-force">Brute Force</a> •
+  <a href="approach-2-Two-Pass-with-Hash-Tablee">Two Pass with Hash Table</a> •
+  <a href="approach-3-One-Pass-with-Hash-Tablee">One Pass with Hash Table</a> •
+  <a href="approach-4-Sort-Two-Pointers">Sort + Two Pointers</a>
 </div>
 
 ---
