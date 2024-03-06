@@ -21,7 +21,7 @@
 
 <p align="center">
   <a href="#AlgoExpert">AlgoExpert.io</a> •
-  <a href="#References">How-To</a>
+  <a href="#How-To">How-To</a>
 </p>
 
 [js-icon]:icons/javascript.svg
@@ -29,16 +29,18 @@
 [js-icon-grey]:icons/javascript-grey.svg
 [swift-icon-grey]:icons/swift-grey.svg
 
-## AlgoExpert
 
-| Problem Statement                     | Difficulty       |       Category      | Solution                                                             | Approach           
-| ------------------------------------- | :----------:     | :------------------:| :------------------------------------------------------------------: | ------------------ 
-| Two Number Sum                        | 🟩               | Arrays              | [![js-icon]](#) &nbsp; [![swift-icon]](#)                            | Hash Table, Two Pointers
-| Validate Subsequence                  | 🟩               | Arrays              | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | Two Pointers 
-| Tournament Winner                     | 🟩               | Arrays              | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | Two Pointers 
-| Non-Constructible Change              | 🟩               | Arrays              | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | Two Pointers 
-| Sorted Squared Array                  | 🟩               | Arrays              | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | Two Pointers                   
-| Three Number Sum                      | 🟦               | Arrays              | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | Hash Table                                      
+## AlgoExpert
+<div align="center">
+
+| Problem Statement                     | Difficulty       |       Category      | Solutions                                                              
+| :---                                  | :---:            | :---:               | :---:                                                                
+| Two Number Sum                        | 🟩               | Arrays              | [![js-icon]](#) &nbsp; [![swift-icon]](#)                            | 
+| Validate Subsequence                  | 🟩               | Arrays              | [![js-icon-grey]](#)&nbsp;&nbsp;&nbsp;[![swift-icon-grey]](#)        | 
+| Tournament Winner                     | 🟩               | Arrays              | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | 
+| Non-Constructible Change              | 🟩               | Arrays              | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | 
+| Sorted Squared Array                  | 🟩               | Arrays              | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  |               
+| Three Number Sum                      | 🟦               | Arrays              | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  |                                       
 | Smallest Difference                   | 🟦               | Arrays              | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | 
 | Move Element To End                   | 🟦               | Arrays              | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | 
 | Monotonic Array                       | 🟦               | Arrays              | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | 
@@ -192,6 +194,8 @@
 | Suffix Trie Construction              | 🟦               | Tries               | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | 
 | Multi String Search                   | 🟥               | Tries               | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | 
 
+</div>
+
 🟩  Easy
 <br/>
 🟦 Medium
@@ -200,6 +204,9 @@
 <br/>
 ⬛ Very Hard
 <br/>
+
+## How-TO
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
