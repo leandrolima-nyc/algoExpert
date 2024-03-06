@@ -34,7 +34,7 @@
 
 | Problem Statement                     | Difficulty       |       Category      | Solutions                                                            | Explanation
 | :---                                  | :---:            | :---:               | :---:                                                                | :---:
-| Two Number Sum                        | 🟩               | Arrays              | [![js-icon]](#) &nbsp; [![swift-icon]](#)                            | 🌟(arrays/easy/two-number-sum.md)
+| Two Number Sum                        | 🟩               | Arrays              | [![js-icon]](#) &nbsp; [![swift-icon]](#)                            | [🌟](arrays/easy/two-number-sum.md)
 | Validate Subsequence                  | 🟩               | Arrays              | [![js-icon-grey]](#)&nbsp;&nbsp;&nbsp;[![swift-icon-grey]](#)        | 
 | Tournament Winner                     | 🟩               | Arrays              | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | 
 | Non-Constructible Change              | 🟩               | Arrays              | [![js-icon-grey]](#) &nbsp; [![swift-icon-grey]](#)                  | 
