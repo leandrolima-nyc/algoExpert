@@ -6,14 +6,15 @@ Given an array of distinct integers and an integer representing the target sum, 
 
 
 ## Solutions
-1. <a href="#approach-1-brute-force">Brute Force</a>
-2. <a href="#approach-2-two-pass-with-hash-table">Two Pass with Hash Table</a>
-3. <a href="#approach-3-one-pass-with-hash-table">One Pass with Hash Table</a>
-4. <a href="#approach-4-sort--two-pointers">Sort + Two Pointers</a>
+1. <a href="#approach-1">Brute Force</a>
+2. <a href="#approach-2">Hash Table</a> <kbd>Two Pass</kbd>
+3. <a href="#approach-3">Hash Table</a> <kbd>One Pass</kbd>
+4. <a href="#approach-4">Sort + Two Pointers</a>
 
 # 
 
-### Approach 1: Brute Force
+### Approach 1
+#### Brute Force
 
 Iterate through the array. For each number, iterate through the rest of the array; if adding any number in the rest of the array to the number yields the target sum, return the pair.
 
@@ -71,7 +72,8 @@ print(result) // Output: [11, -1]
 
 #
 
-### Approach 2: Two Pass with Hash Table
+### Approach 2 
+#### Hash Table <kbd>Two Pass</kbd>
 
 In the brute force approach above, the repeated search for each number's complement (`target sum - array[i]`) slows down the overall runtime. We can reduce the search from O(N) to amortized O(1) by throwing all the number in the array into a hash table, trading space for time. We need to ensure that the complement is not the current number itself though. For instance, suppose the input array is `[5, 2]` and the target sum is `10`, the hash table is going to be `{5: value, 2: value}`. The complement of `5` is `5` (`10 - 5 = 5`) and `5` does exist in the hash table, however, the complement is the number itself, thus it is not a valid answer. To handle this we can store each number's index as value in the hash table and compare the complement's index to the current number's index.
 
@@ -152,7 +154,8 @@ Let N be the length of the input array.
 
 #
 
-### Approach 3: One Pass with Hash Table
+### Approach 3
+#### Hash Table <kbd>One Pass</kbd>
 
 We can check if the complement of the current number is present in the hash table while we are adding numbers into the hash table. At each step, we first look up current number's complement in the hash table. If it already exists, then we have found the pair; otherwise, add the current number into the hash table.
 
@@ -217,19 +220,19 @@ We can also notice that with this approach we don't need to check if the complem
 
 ```js
 function twoNumberSum(array, targetSum) {
-    let hashTable = {};
+  const hashTable = new Map();
 
-    for (let num of array) {
-        let complement = targetSum - num;
+  for (const num of array) {
+    const complement = targetSum - num;
 
-        if (hashTable[complement]) {
-            return [complement, num];
-        }
-
-        hashTable[num] = true;
+    if (hashTable.has(complement)) {
+      return [complement, num];
     }
 
-    return [];
+    hashTable.set(num, true);
+  }
+
+  return [];
 }
 
 // Example usage:
@@ -248,7 +251,7 @@ func twoNumberSum(array: [Int], targetSum: Int) -> [Int] {
     for num in array {
         let complement = targetSum - num
 
-        if hashTable[complement] != nil {
+        if hashTable.contains(complement) {
             return [complement, num]
         }
 
@@ -275,7 +278,8 @@ Let N be the length of the input array.
 
 #
 
-### Approach 4: Sort + Two Pointers
+### Approach 4
+#### Sort + Two Pointers
 
 We sort the input array in ascending order and use two pointers to find the pair in the array.
 
