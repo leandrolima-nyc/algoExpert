@@ -19,34 +19,50 @@ Given an array of distinct integers and an integer representing the target sum, 
 
 Iterate through the array. For each number, iterate through the rest of the array; if adding any number in the rest of the array to the number yields the target sum, return the pair.
 
-### Implementation
-
-JavaScript:
+<div align="right">Java Script <a href="#"><img src="../../icons/javascript.svg" width="12px"></a> </div>
 
 ```js
 function twoNumberSum(array, targetSum) {
-  for (let i = 0; i < array.length; i++) {
-    const firstNum = array[i];
-    for (let j = i + 1; j < array.length; j++) {
-      const secondNum = array[j];
-      if (firstNum + secondNum === targetSum) {
-        return [firstNum, secondNum];
-      }
+    for (let i = 0; i < array.length; i++) {
+        let firstNum = array[i];
+        for (let j = i + 1; j < array.length; j++) {
+            let secondNum = array[j];
+            if (firstNum + secondNum === targetSum) {
+                return [firstNum, secondNum];
+            }
+        }
     }
-  }
-
-  return [];
+    return [];
 }
+
+// Example usage:
+let array = [3, 5, -4, 8, 11, 1, -1, 6];
+let targetSum = 10;
+let result = twoNumberSum(array, targetSum);
+console.log(result); // Output: [11, -1]
 ```
 
-Swift:
+<div align="right">Swift <a href="#"><img src="../../icons/swift.svg" width="12px"></a> </div>
 
 ```swift
+func twoNumberSum(array: [Int], targetSum: Int) -> [Int] {
+    for i in 0..<array.count {
+        let firstNum = array[i]
+        for j in (i + 1)..<array.count {
+            let secondNum = array[j]
+            if firstNum + secondNum == targetSum {
+                return [firstNum, secondNum]
+            }
+        }
+    }
+    return []
+}
 
-//
-//you code here
-//
-
+// Example usage:
+let array = [3, 5, -4, 8, 11, 1, -1, 6]
+let targetSum = 10
+let result = twoNumberSum(array: array, targetSum: targetSum)
+print(result) // Output: [11, -1]
 ```
 
 ### Complexity Analysis
@@ -67,48 +83,65 @@ In the brute force approach above, the repeated search for each number's complem
 
 - Loop through the input array again. Check if each number's complement is present in the hash table. If it is present and is not the current number itself, return the current number and its complement.
 
-### Implementation
-
-JavaScript:
+<div align="right">Java Script <a href="#"><img src="../../icons/javascript.svg" width="12px"></a> </div>
 
 ```js
 function twoNumberSum(array, targetSum) {
-  const hashTable = new Map();
+    let hashTable = {};
 
-  for (let i = 0; i < array.length; i++) {
-    hashTable.set(array[i], i);
-  }
-
-  for (let i = 0; i < array.length; i++) {
-    const complement = targetSum - array[i];
-
-    if (hashTable.has(complement) && hashTable.get(complement) !== i) {
-      return [array[i], complement];
+    // Populate the hash table with the array elements and their indices
+    for (let i = 0; i < array.length; i++) {
+        hashTable[array[i]] = i;
     }
-  }
 
-  return [];
+    // Iterate through the array to find the complement of each element
+    for (let i = 0; i < array.length; i++) {
+        let value = array[i];
+        let complement = targetSum - value;
+
+        // Check if the complement exists in the hash table and it is not the current element
+        if (hashTable.hasOwnProperty(complement) && hashTable[complement] !== i) {
+            return [value, complement];
+        }
+    }
+
+    // If no pair is found, return an empty array
+    return [];
 }
+
+// Example usage:
+let array = [3, 5, -4, 8, 11, 1, -1, 6];
+let targetSum = 10;
+let result = twoNumberSum(array, targetSum);
+console.log(result); // Output: [11, -1]
 ```
 
-Swift:
+<div align="right">Swift <a href="#"><img src="../../icons/swift.svg" width="12px"></a> </div>
 
 ```swift
-class Solution {
-    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        var numIdxMap = [Int:Int]()
-        for i in 0..<nums.count {
-            numIdxMap[nums[i]] = i
-        }
-        for i in 0..<nums.count {
-            let num = nums[i]
-            if let j = numIdxMap[target - num], j != i {
-                return [i, j]
-            }
-        }
-        return [-1, -1]
+func twoNumberSum(array: [Int], targetSum: Int) -> [Int] {
+    var hashTable = [Int: Int]()
+
+    for (index, value) in array.enumerated() {
+        hashTable[value] = index
     }
+
+    for (index, value) in array.enumerated() {
+        let complement = targetSum - value
+
+        if let complementIndex = hashTable[complement], complementIndex != index {
+            return [value, complement]
+        }
+    }
+
+    return []
 }
+
+// Example usage:
+let array = [3, 5, -4, 8, 11, 1, -1, 6]
+let targetSum = 10
+let result = twoNumberSum(array: array, targetSum: targetSum)
+print(result) // Output: [11, -1]
 ```
 
 ### Complexity Analysis
@@ -182,36 +215,56 @@ hashTable = { 3: 0,
 
 We can also notice that with this approach we don't need to check if the complement is the current number itself. Therefore, it is not necessary to store each number's index as value in the hash table.
 
-### Implementation
-
-JavaScript:
+<div align="right">Java Script <a href="#"><img src="../../icons/javascript.svg" width="12px"></a> </div>
 
 ```js
 function twoNumberSum(array, targetSum) {
-  const hashTable = new Map();
+    let hashTable = {};
 
-  for (const num of array) {
-    const complement = targetSum - num;
+    for (let num of array) {
+        let complement = targetSum - num;
 
-    if (hashTable.has(complement)) {
-      return [complement, num];
+        if (hashTable[complement]) {
+            return [complement, num];
+        }
+
+        hashTable[num] = true;
     }
 
-    hashTable.set(num, true);
-  }
-
-  return [];
+    return [];
 }
+
+// Example usage:
+let array = [3, 5, -4, 8, 11, 1, -1, 6];
+let targetSum = 10;
+let result = twoNumberSum(array, targetSum);
+console.log(result); // Output: [11, -1]
 ```
 
-Swift:
+<div align="right">Swift <a href="#"><img src="../../icons/swift.svg" width="12px"></a> </div>
 
 ```swift
+func twoNumberSum(array: [Int], targetSum: Int) -> [Int] {
+    var hashTable = [Int: Bool]()
 
-//
-//you code here
-//
+    for num in array {
+        let complement = targetSum - num
 
+        if hashTable[complement] != nil {
+            return [complement, num]
+        }
+
+        hashTable[num] = true
+    }
+
+    return []
+}
+
+// Example usage:
+let array = [3, 5, -4, 8, 11, 1, -1, 6]
+let targetSum = 10
+let result = twoNumberSum(array: array, targetSum: targetSum)
+print(result) // Output: [11, -1]
 ```
 
 ### Complexity Analysis
@@ -262,41 +315,64 @@ The sum is `4` and it is greater than `3`, so we move `r` to left by one.
 
 `-2 + 5 = 3`. We have found the pair.
 
-### Implementation
-
-JavaScript:
+<div align="right">Java Script <a href="#"><img src="../../icons/javascript.svg" width="12px"></a> </div>
 
 ```js
 function twoNumberSum(array, targetSum) {
-  array.sort((a, b) => a - b);
+    let sortedArray = array.sort((a, b) => a - b);
+    let left = 0;
+    let right = sortedArray.length - 1;
 
-  let left = 0;
-  let right = array.length - 1;
-
-  while (left < right) {
-    const currSum = array[left] + array[right];
-    if (currSum === targetSum) {
-      return [array[left], array[right]];
+    while (left < right) {
+        let currSum = sortedArray[left] + sortedArray[right];
+        if (currSum === targetSum) {
+            return [sortedArray[left], sortedArray[right]];
+        }
+        if (currSum < targetSum) {
+            left++;
+        } else {
+            right--;
+        }
     }
-    if (currSum < targetSum) {
-      left++;
-    } else {
-      right--;
-    }
-  }
 
-  return [];
+    return [];
 }
+
+// Example usage:
+let array = [3, 5, -4, 8, 11, 1, -1, 6];
+let targetSum = 10;
+let result = twoNumberSum(array, targetSum);
+console.log(result); // Output: [-1, 11]
 ```
 
-Swift:
+<div align="right">Swift <a href="#"><img src="../../icons/swift.svg" width="12px"></a> </div>
 
 ```swift
+func twoNumberSum(array: [Int], targetSum: Int) -> [Int] {
+    var sortedArray = array.sorted()
+    var left = 0
+    var right = sortedArray.count - 1
 
-//
-//you code here
-//
+    while left < right {
+        let currSum = sortedArray[left] + sortedArray[right]
+        if currSum == targetSum {
+            return [sortedArray[left], sortedArray[right]]
+        }
+        if currSum < targetSum {
+            left += 1
+        } else {
+            right -= 1
+        }
+    }
 
+    return []
+}
+
+// Example usage:
+let array = [3, 5, -4, 8, 11, 1, -1, 6]
+let targetSum = 10
+let result = twoNumberSum(array: array, targetSum: targetSum)
+print(result) // Output: [-1, 11]
 ```
 
 ### Complexity Analysis
@@ -304,3 +380,6 @@ Swift:
 - Time Complexity: O(N · log(N)), where N is the length of the input array.
 
 - Space Complexity: O(log(N)) or O(N), depending on the implementation of the sorting algorithm.
+
+[js-icon]:../../icons/javascript.svg
+[swift-icon]:../../icons/swift.svg
