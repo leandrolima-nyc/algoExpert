@@ -12,8 +12,7 @@ Given an array of distinct integers and an integer representing the target sum, 
   <a href="#approach-4-sort--two-pointers">Sort + Two Pointers</a>
 </div>
 
----
-
+# 
 
 ### Approach 1: Brute Force
 
