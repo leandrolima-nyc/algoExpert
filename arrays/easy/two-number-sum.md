@@ -5,12 +5,11 @@
 Given an array of distinct integers and an integer representing the target sum, we are asked to implement a function that is going to find out whether there's a pair of numbers in the array that adds up to the target sum. If such pair exists, return the pair in any order; otherwise return an empty array. We cannot add a number to itself to get the target sum.
 
 
-<div align="center">
-  <a href="#approach-1-brute-force">Brute Force</a> •
-  <a href="#approach-2-two-pass-with-hash-table">Two Pass with Hash Table</a> •
-  <a href="#approach-3-one-pass-with-hash-table">One Pass with Hash Table</a> •
-  <a href="#approach-4-sort--two-pointers">Sort + Two Pointers</a>
-</div>
+## Solutions
+1. <a href="#approach-1-brute-force">Brute Force</a>
+2. <a href="#approach-2-two-pass-with-hash-table">Two Pass with Hash Table</a>
+3. <a href="#approach-3-one-pass-with-hash-table">One Pass with Hash Table</a>
+4. <a href="#approach-4-sort--two-pointers">Sort + Two Pointers</a>
 
 # 
 
