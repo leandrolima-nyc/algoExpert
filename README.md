@@ -38,11 +38,11 @@
 | Problem Statement                     | Hurdle       |       Category      | Solutions                                 | Paper
 | :---                                  | :---:            | :---:               | :---:                                     | :---:
 | Two Number Sum                        | 🟩               | Arrays              | [![js-icon]](#)&nbsp;[![swift-icon]](#)   | [![check-icon]](arrays/easy/two-number-sum.md)
-| Validate Subsequence                  | 🟩               | Arrays              |                                           | 
+| Validate Subsequence                  | 🟩               | Arrays              | [![js-icon]](#)&nbsp;[![swift-icon]](#)   | [![check-icon]](arrays/hard/validate-subsequence.md)
 | Tournament Winner                     | 🟩               | Arrays              |                                           | 
 | Non-Constructible Change              | 🟩               | Arrays              |                                           | 
-| Sorted Squared Array                  | 🟩               | Arrays              |                                           |               
-| Three Number Sum                      | 🟦               | Arrays              |                                           |                                       
+| Sorted Squared Array                  | 🟩               | Arrays              |                                           | 
+| Three Number Sum                      | 🟦               | Arrays              |                                           | 
 | Smallest Difference                   | 🟦               | Arrays              |                                           | 
 | Move Element To End                   | 🟦               | Arrays              |                                           | 
 | Monotonic Array                       | 🟦               | Arrays              |                                           | 
