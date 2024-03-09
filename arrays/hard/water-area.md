@@ -27,6 +27,20 @@ _|..|..|..||.|
 
 </pre>
 
+<pre>
+       |
+       |
+ |.....|
+ |.....|
+ |.....|
+ |..|..|
+ |..|..|
+ |..|..|.....|
+ |..|..|.....|
+_|..|..|..||.|
+
+</pre>
+
 ## Solutions
 1. <a href="#approach-1">Subsequence Validation</a> <kbd>.forEach</kbd>
 2. <a href="#approach-2">Subsequence Validation</a> <kbd>for...of</kbd>
