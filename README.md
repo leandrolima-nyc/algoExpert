@@ -25,7 +25,7 @@ A curated collection of solutions I have cooked up while tackling problems from 
 </p>
 
 <p align="left">
-<code>Initially</code>, I jump into each problem with a <code>blank slate</code>, without of any external resources or prior research.  <code>Then</code>, after I have solved it, I engaged in <code>thorough online study</code>, analyzing the best solutions available and exploring various approaches.  Armed with these new ideas, I reconstructed the problems using my own understanding and methodologies.
+<code>Initially</code>, I jump into each problem with a <code>blank slate</code>, without of any external resources or prior research.  <code>Then</code>, after I have solved it, I engaged in <code>thorough online study</code>, analyzing the best solutions available, exploring different angles and approaches.  Armed with these new ideas, I reconstructed the problems using my own understanding and methodologies.
 </p>
 <table><tr><td><samp><p>Let's face it, sometimes <code>I make mistakes!</code> Even though my first attempt works for the basic examples, different scenarios pop up. That means I have to go back and tweak things until they're perfect. And even after my solution passes all the tests, there's always that one tricky situation my code can't handle. </p><p>That's when I have to <code>get creative</code> and come up with a totally new way to solve it.</samp> <a href="arrays/hard/water-area.md"><kbd>🔗&nbsp;water-area</kbd></a></p></td></tr></table>
 
@@ -50,8 +50,8 @@ A curated collection of solutions I have cooked up while tackling problems from 
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="icons/ae-logo.svg?raw=true" width="450px">
-  <img src="/owner/repo/raw/current-branch/.github/images/colorful.svg?raw=true" width="450px">
+  <source media="(prefers-color-scheme: dark)" srcset="icons/ae-logo.svg?raw=true" width="300px">
+  <img src="/owner/repo/raw/current-branch/.github/images/colorful.svg?raw=true" width="300px">
 </picture>
 </p>
 
