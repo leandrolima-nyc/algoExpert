@@ -1,7 +1,10 @@
+<!--
 <h1 align="center">
   <br>
   <img src="https://media.licdn.com/dms/image/C4E1BAQG9848diIW0Aw/company-background_10000/0/1584731690279/algoexpert_cover?e=2147483647&v=beta&t=JLmFUf3TVaGcVlrZDdeoBuf2aLTD4ir2D7gz1wjTKWc">
 </h1>
+-->
+<h1 align="left">Coding Interview Journey: <br /> A Collection of Problem-Solving Solutions</h4>
 
 <div align="center">
   
@@ -17,12 +20,20 @@
   [![language-swift]](#)
   
 </div>
-
-<h1 align="center"> My AlgoExpert Journey: A Collection of Problem-Solving Solutions</h4>
-
-<p align="center">
-  A curated collection of solutions I have cooked up while tackling problems on the AlgoExpert Coding Interview platform.  Initially, I approached each problem with a blank slate, without of any external resources or prior research.  Next, I engaged in thorough online study, analyzing the best solutions available and exploring various approaches.  Armed with newfound insights, I reconstructed the problems using my own understanding and methodologies.  Each solution I offer is accompanied by a detailed explanation, providing insights into its time and space complexities. I invite you to explore my findings, hoping you'll find them as enlightening and enjoyable as I did during the journey.
+<p align="left">
+A curated collection of solutions I have cooked up while tackling problems from Coding Interview platforms.  Most of the problems have at least two solutions.  But if a problem is too easy, I just keep it simple.
 </p>
+
+<p align="left">
+<code>Initially</code>, I jump into each problem with a <code>blank slate</code>, without of any external resources or prior research.  <code>Then</code>, after I have solved it, I engaged in <code>thorough online study</code>, analyzing the best solutions available and exploring various approaches.  Armed with these new ideas, I reconstructed the problems using my own understanding and methodologies.
+</p>
+<table><tr><td><samp><p>Let's face it, sometimes <code>I make mistakes!</code> Even though my first attempt works for the basic examples, different scenarios pop up. That means I have to go back and tweak things until they're perfect. And even after my solution passes all the tests, there's always that one tricky situation my code can't handle. </p><p>That's when I have to <code>get creative</code> and come up with a totally new way to solve it.</samp> <a href="arrays/hard/water-area.md"><kbd>🔗&nbsp;water-area</kbd></a></p></td></tr></table>
+
+</p>
+<p align="left">
+<code>Each solution</code> I offer is accompanied by a <code>detailed explanation</code>, providing insights into its time and space complexities. I invite you to explore my findings, hoping you'll find them as enlightening and <code>enjoyable</code> as I did during the ride.
+</p>
+
 
 <p align="center">
   <a href="#">
@@ -30,10 +41,37 @@
   </a>
 </p>
 
-<h4 align="center">Show your support by giving it a STAR 🌟</h4>
+<h2 align="center">Show your support by giving it a STAR 🌟</h2>
+
+<br />
 
 
 <div align="center">
+
+<p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="icons/ae-logo.svg?raw=true" width="450px">
+  <img src="/owner/repo/raw/current-branch/.github/images/colorful.svg?raw=true" width="450px">
+</picture>
+</p>
+
+
+
+<!--
+
+![][ae-logo]
+![][ae-logo-light]
+
+<a href="#"><img src="icons/ae-logo.svg#gh-dark-mode-only" width="500"></a>
+
+<a href="#gh-light-mode-only"><img src="icons/ae-logo-light.svg" width="500"></a>
+
+![Termux Logo](https://user-images.githubusercontent.com/72879799/153904095-9d78a019-8495-4035-8174-e3da8e4dd66b.png#gh-light-mode-only)
+![Termux Logo](icons/ae-logo-light.svg#gh-light-mode-only)
+
+[ae-logo]:icons/ae-logo.svg#gh-dark-mode-only
+[ae-logo-light]:icons/ae-logo-light.svg#gh-light-mode-only
+-->
 
 | Problem Statement                     | Hurdle       |       Category      | Solutions                                 | Paper
 | :---                                  | :---:            | :---:               | :---:                                     | :---:
@@ -233,4 +271,6 @@
 [swift-icon]:icons/swift.svg
 [check-icon]:icons/check-mark.svg
 [inprogress-icon]:icons/inprogress.svg
+
+
 
