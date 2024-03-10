@@ -37,7 +37,7 @@ A curated `collection of solutions` I have cooked up while tackling problems fro
   </a>
 </p>
 
-<h2 align="center">Show your support by giving it a STAR 🌟</h2>
+<h2 align="center">Show your support by giving it a STAR ⭐️</h2>
 
 <br />
 
