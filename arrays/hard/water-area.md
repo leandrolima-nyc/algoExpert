@@ -100,18 +100,20 @@ To improve efficiency, I created a copy of the <kbd>array</kbd> called <kbd>maxL
 At last, we can correctly assign the smaller value between <kbd>currentHeight</kbd> and <kbd>maxHeight</kbd> to the variable <kbd>currentMax</kbd>.
 
 ```js
+// ADDED
 let maxList = [...heights].sort((a, b) => b - a)
 ```
 ```js
 for (const idx in heights) {
+// ADDED
   maxList.splice(maxList.indexOf(currentHeight), 1)
   const maxHeight = maxList[0]
+
   // code...
 }
 ```
 ```js
 // REMOVED:  if ( ... || idx == heights.length - 1)
-
 if (currentHeight >= currentMax) {
 
   //...code
