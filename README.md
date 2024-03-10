@@ -49,27 +49,11 @@ A curated `collection of solutions` I have cooked up while tackling problems fro
 <p>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="icons/ae-logo.svg?raw=true" width="300px">
-  <img src="/owner/repo/raw/current-branch/.github/images/colorful.svg?raw=true" width="300px">
+  <img src="icons/ae-logo-light.svg" width="300px">
 </picture>
 </p>
 
 
-
-<!--
-
-![][ae-logo]
-![][ae-logo-light]
-
-<a href="#"><img src="icons/ae-logo.svg#gh-dark-mode-only" width="500"></a>
-
-<a href="#gh-light-mode-only"><img src="icons/ae-logo-light.svg" width="500"></a>
-
-![Termux Logo](https://user-images.githubusercontent.com/72879799/153904095-9d78a019-8495-4035-8174-e3da8e4dd66b.png#gh-light-mode-only)
-![Termux Logo](icons/ae-logo-light.svg#gh-light-mode-only)
-
-[ae-logo]:icons/ae-logo.svg#gh-dark-mode-only
-[ae-logo-light]:icons/ae-logo-light.svg#gh-light-mode-only
--->
 
 | Problem Statement                     | Hurdle       |       Category      | Solutions                                 | Paper
 | :---                                  | :---:            | :---:               | :---:                                     | :---:
