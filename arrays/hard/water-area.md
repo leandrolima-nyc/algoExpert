@@ -47,7 +47,7 @@ let surfaceArea = 0
 let space = 0
 let currentMax = heights[0]
 ```
-It starts by comparing each element of the <kbd>array</kbd> against the <kbd>currentMax</kbd>. If the <kbd>currentHeight</kbd> equals or exceeds the <kbd>currentMax</kbd>, then it employes a formula to compute the current <kbd>surfaceArea</kbd> and updates the new <kbd>currentMax</kbd> with the <kbd>currentHeight</kbd>. If the <kbd>currentHeight</kbd> falls short, then it accumulates the number of <kbd>pillars</kbd> with the current height <kbd>currentHeight</kbd> and increments the number <kbd>voids</kbd> separately in their respective variables, proceeding to the next iteration. This approach ensured that the function iterated through the <kbd>array</kbd> just once, efficiently finding the area of trapped water. 
+It starts by comparing each element of the <kbd>array</kbd> against the <kbd>currentMax</kbd>. If the <kbd>currentHeight</kbd> equals or exceeds the <kbd>currentMax</kbd>, then it employes a formula to compute the current <kbd>surfaceArea</kbd> and updates the new <kbd>currentMax</kbd> with the <kbd>currentHeight</kbd> value. If the <kbd>currentHeight</kbd> is less than <kbd>currentMax</kbd>, then it accumulates the number of <kbd>pillars</kbd> with the current height <kbd>currentHeight</kbd> and increments the number <kbd>voids</kbd> separately in their respective variables, proceeding to the next iteration. This approach ensured that the function iterated through the <kbd>array</kbd> just once, efficiently finding the area of trapped water. 
 
 <table><tr><td><samp>⚠️ Spoiler alert: Although I managed to obtain the correct answer for the sample input, there were additional scenarios that I overlooked. Thus, the journey continues..</td></tr></table>
 
@@ -71,7 +71,7 @@ return surfaceArea
 ```
 
 ### Patching
-In the current state of the solution, the calculation only happens when falls under two conditions.  The <kbd>currentHeight</kbd> must excceds <kbd>currentMax</kbd> or it reaches the end of the <kbd>array</kbd>.  Any water trapped above the last number of the <kbd>array</kbd>, it will be completelly ignored.  `Output: 22` ❌  
+In the current state of the solution, the calculation only happens when falls under two conditions.  The <kbd>currentHeight</kbd> must excceds <kbd>currentMax</kbd> or it reaches the end of the <kbd>array</kbd>.  Any water trapped above the last number of the <kbd>array</kbd>, it will be completelly ignored. In this instance, only surface up to and including 3 are considered.  `Output: 22` ❌  
 
 #### Different Scenario
 
@@ -84,8 +84,8 @@ Indexes
  0 1 2 3 4 5 6 0 8 9 1 1 1 1                0 1 2 3 4 5 6 0 8 9 1 1 1 1
                      0 1 2 3                                    0 1 2 3
    ┃                                          ┃ 
-   ┃ . . ┃                                    ┃ x x ┃
-   ┃ . . ┃ . . ┃                              ┃ x x ┃ x x ┃
+   ┃ . . ┃                                    ┃ Ⅹ Ⅹ ┃
+   ┃ . . ┃ . . ┃                              ┃ Ⅹ Ⅹ ┃ Ⅹ Ⅹ ┃
    ┃ . . ┃ . . ┃ . . . . . ┃                  ┃ . . ┃ . . ┃ . . . . . ┃
    ┃ . . ┃ . . ┃ . . . . . ┃                  ┃ . . ┃ . . ┃ . . . . . ┃
    ┃ . . ┃ . . ┃ . . ┃ ┃ . ┃                  ┃ . . ┃ . . ┃ . . ┃ ┃ . ┃ 
@@ -93,9 +93,9 @@ Indexes
 Heights
 
 ```
-At this point, I had to determine the highest number in the <kbd>array</kbd> from the current <kbd>idx</kbd> to the end of the <kbd>array</kbd> and adjust the <kbd>currentMax</kbd> accordingly.  However, iterating through the entire <kbd>array</kbd> at each iteration was not pratical. I had to come up with a clever solution. 
+At this point, I had to determine the highest number in the <kbd>array</kbd> from the current pointer <kbd>idx</kbd> to the end of the <kbd>array</kbd> and adjust the <kbd>currentMax</kbd> accordingly.  However, iterating through the entire <kbd>array</kbd> at each iteration was not pratical. I had to come up with a clever solution. 
 
-To improve efficiency, I created a copy of the <kbd>array</kbd> called <kbd>maxList</kbd>, sorted in ascending order. During each iteration, elements are removed from <kbd>maxList</kbd> using the indexOf method along with <kbd>currentHeight</kbd>. As a result, <kbd>maxList</kbd> retains only unprocessed values from the original <kbd>array</kbd>, with its first position always representing the highest value for subsequent iterations. This approach allows the creation of a new variable <kbd>maxHeight</kbd>, that updates with the first element of <kbd>maxList</kbd>.
+To improve efficiency, I created a copy of the <kbd>array</kbd> called <kbd>maxList</kbd>, sorted in ascending order. During each iteration, elements are removed from <kbd>maxList</kbd> using the indexOf method along with <kbd>currentHeight</kbd> value. As a result, <kbd>maxList</kbd> retains only unprocessed values from the original <kbd>array</kbd>, with its first position always representing the highest value for subsequent iterations. Using this approach it allows to create of a variable <kbd>maxHeight</kbd>, which consistently updates to reflect the first element of <kbd>maxList</kbd>.
 
 At last, we can correctly assign the smaller value between <kbd>currentHeight</kbd> and <kbd>maxHeight</kbd> to the variable <kbd>currentMax</kbd>.
 
