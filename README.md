@@ -23,13 +23,11 @@
 
 A curated `collection of solutions` I have cooked up while tackling problems from `Coding Interview` platforms.  Most of the problems have at least `two solutions`.  But if a problem is too easy, I just `keep it simple`.
 
-`Initially`, I jump into each problem with a 💡`blank slate`, without of any external resources or prior research.  <code>Then</code>, after I have solved it, I engage in `thorough online study`, analyzing the `best solutions available` 🎯, exploring different angles and approaches.  Armed with these `new ideas`, I reconstruct the problems using `my own` understanding and `methodologies`.
+`Initially`, I jump into each problem with a 💡`blank slate`, without of any external resources or prior research.  <code>Then</code>, after I solve it, I engage in `thorough online study`, analyzing the `best solutions available` 🎯, exploring different angles and approaches.  Armed with these `new ideas`, I reconstruct the problems using `my own` understanding and `methodologies`.
 
 <table><tr><td><samp><p>Let's face it, sometimes <code>I make mistakes!</code> Even though my first attempt works for the basic examples, different scenarios pop up. That means I have to go back and tweak things until they're perfect. And even after my solution passes all the tests, there's always that one tricky situation my code can't handle. </p><p>That's when I have to <code>get creative</code> and come up with a totally new way to solve it.</samp> <a href="arrays/hard/water-area.md"><kbd>🔗&nbsp;water-area</kbd></a></p></td></tr></table>
 
-</p>
-
-`Each solution` I offer is accompanied by a `detailed explanation`, providing insights into its `time and space complexities`. I invite you to explore my findings, hoping you'll `find them` as enlightening and `enjoyable`.
+`Each solution` I present is accompanied by a `detailed explanation`, providing insights into its `time and space complexities`. I'm thrilled to share this project, and hope you'll `find them` as enlightening and `enjoyable` as I do while working on it.
 
 
 
