@@ -51,6 +51,8 @@ A curated `collection of solutions` I have cooked up while tackling problems fro
 </picture>
 </p>
 
+<kbd><a href="arrays/easy/two-number-sum.md">two-number-sum</a></kbd><kbd><a href="arrays/easy/validate-subsequence.md">validate-subsequence</a></kbd><kbd><a href="arrays/easy/water-area.md">water-area</a></kbd>
+
 
 
 | Problem Statement                     | Hurdle       |       Category      | Solutions                                 | Paper
