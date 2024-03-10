@@ -58,7 +58,7 @@ A curated `collection of solutions` I have cooked up while tackling problems fro
 | Problem Statement                     | Hurdle       |       Category      | Solutions                                 | Paper
 | :---                                  | :---:            | :---:               | :---:                                     | :---:
 | Two Number Sum                        | 🟩               | Arrays              | [![js-icon]](#)&nbsp;[![swift-icon]](#)   | [![check-icon]](arrays/easy/two-number-sum.md)
-| Validate Subsequence                  | 🟩               | Arrays              | [![js-icon]](#)&nbsp;[![swift-icon]](#)   | [![check-icon]](arrays/hard/validate-subsequence.md)
+| Validate Subsequence                  | 🟩               | Arrays              | [![js-icon]](#)&nbsp;[![swift-icon]](#)   | [![check-icon]](arrays/easy/validate-subsequence.md)
 | Tournament Winner                     | 🟩               | Arrays              |                                           | 
 | Non-Constructible Change              | 🟩               | Arrays              |                                           | 
 | Sorted Squared Array                  | 🟩               | Arrays              |                                           | 
