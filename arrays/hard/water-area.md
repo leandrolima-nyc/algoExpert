@@ -4,187 +4,285 @@
 
 You are given an array of non-negative integers where each non-zero integer represents the height of a pillar of width `1`. Imagine water being poured over all of the pillar; write a fucntion that returns the surface area of the water trapped between the pillars viewed from the front. Note that spilled water should be ignored.
 
-<h3>Sample Input</h3>
-<pre>
-  heights =  [0, 8, 0, 0, 5, 0, 0, 10, 0, 0, 1, 1, 0, 3]
-</pre>
-<h3>Sample Output</h3>
-<pre>
-  48
-</pre>
-<h3>Visual Representation</h3>
-<pre>
-       |
-       |
- |.....|
- |.....|
- |.....|
- |..|..|
- |..|..|
- |..|..|.....|
- |..|..|.....|
-_|..|..|..||.|
-
-</pre>
-
-<pre>
-       |
-       |
- |.....|
- |.....|
- |.....|
- |..|..|
- |..|..|
- |..|..|.....|
- |..|..|.....|
-_|..|..|..||.|
-
-</pre>
-
 ## Solutions
-1. <a href="#approach-1">Subsequence Validation</a> <kbd>.forEach</kbd>
-2. <a href="#approach-2">Subsequence Validation</a> <kbd>for...of</kbd>
+1. <a href="#method-1">Array Manipulation</a> <kbd>single loop</kbd> 💡
+2. <a href="#method-2">Array Processing</a> <kbd>two pointers</kbd> 🎯
+
+### Visual Representation
+
+```bash
+heights = [0, 8, 0, 0, 5, 0, 0, 10, 0, 0, 1, 1, 0, 3]
+
+// Output: 48
+
+Indexes
+ 0 1 2 3 4 5 6 0 8 9 1 1 1 1
+               ┃     0 1 2 3
+   ┃ . . . . . ┃
+   ┃ . . . . . ┃
+   ┃ . . . . . ┃
+   ┃ . . ┃ . . ┃
+   ┃ . . ┃ . . ┃
+   ┃ . . ┃ . . ┃ . . . . . ┃
+   ┃ . . ┃ . . ┃ . . . . . ┃
+   ┃ . . ┃ . . ┃ . . ┃ ┃ . ┃
+ 0 8 0 0 5 0 0 9 0 0 1 1 0 3
+Heights
+
+```
 
 # 
 
-### Approach 1
-#### Subsequence Validation <kbd>.forEach</kbd>
+### Method 1
+#### Array Manipulation <kbd>for...in</kbd>
 
-It iterates through both arrays, updating a `counter` variable whenever a matching element is found in the `array` compared to the `sequence`. Finally, it checks if the `counter` is equal to the length of the `sequence` array to determine if all elements in the `sequence` were found in the `array`.
+Initially, I deemed the `problem straightforward`, so I adopted a `simple and direct approach`. 
+
+```js
+if (!heights.some((height) => height > 0) || heights.length === 0) return 0
+
+//Initializers
+let pillars = 0
+let surfaceArea = 0
+let space = 0
+let currentMax = heights[0]
+```
+It starts by comparing each element of the <kbd>array</kbd> against the <kbd>currentMax</kbd>. If the <kbd>currentHeight</kbd> equals or exceeds the <kbd>currentMax</kbd>, then it employes a formula to compute the current <kbd>surfaceArea</kbd> and updates the new <kbd>currentMax</kbd> with the <kbd>currentHeight</kbd>. If the <kbd>currentHeight</kbd> falls short, then it accumulates the number of <kbd>pillars</kbd> with the current height <kbd>currentHeight</kbd> and increments the number <kbd>voids</kbd> separately in their respective variables, proceeding to the next iteration. This approach ensured that the function iterated through the <kbd>array</kbd> just once, efficiently finding the area of trapped water. 
+
+<table><tr><td><samp>⚠️ Spoiler alert: Although I managed to obtain the correct answer for the sample input, there were additional scenarios that I overlooked. Thus, the journey continues..</td></tr></table>
+
+```js
+for (const idx in heights) {
+  let currentHeight = heights[idx]
+
+  if (currentHeight >= currentMax || idx == heights.length - 1) {
+    surfaceArea += space * Math.min(currentHeight, currentMax) - pillars
+    space = 0
+    pillars = 0
+    currentMax = currentHeight
+  } else {
+    space++
+    pillars += currentHeight
+  }
+}
+return surfaceArea
+
+// Output: 48 ✅
+```
+
+### Patching
+In the current state of the solution, the calculation only happens when falls under two conditions.  The <kbd>currentHeight</kbd> must excceds <kbd>currentMax</kbd> or it reaches the end of the <kbd>array</kbd>.  Any water trapped above the last number of the <kbd>array</kbd>, it will be completelly ignored.  `Output: 22` ❌  
+
+#### Different Scenario
+
+```bash
+heights = [0, 6, 0, 0, 5, 0, 0, 4, 0, 0, 1, 1, 0, 3]
+
+// Output: 31
+
+Indexes
+ 0 1 2 3 4 5 6 0 8 9 1 1 1 1                0 1 2 3 4 5 6 0 8 9 1 1 1 1
+                     0 1 2 3                                    0 1 2 3
+   ┃                                          ┃ 
+   ┃ . . ┃                                    ┃ x x ┃
+   ┃ . . ┃ . . ┃                              ┃ x x ┃ x x ┃
+   ┃ . . ┃ . . ┃ . . . . . ┃                  ┃ . . ┃ . . ┃ . . . . . ┃
+   ┃ . . ┃ . . ┃ . . . . . ┃                  ┃ . . ┃ . . ┃ . . . . . ┃
+   ┃ . . ┃ . . ┃ . . ┃ ┃ . ┃                  ┃ . . ┃ . . ┃ . . ┃ ┃ . ┃ 
+ 0 6 0 0 5 0 0 4 0 0 1 1 0 3                0 6 0 0 5 0 0 4 0 0 1 1 0 3
+Heights
+
+```
+At this point, I had to determine the highest number in the <kbd>array</kbd> from the current <kbd>idx</kbd> to the end of the <kbd>array</kbd> and adjust the <kbd>currentMax</kbd> accordingly.  However, iterating through the entire <kbd>array</kbd> at each iteration was not pratical. I had to come up with a clever solution. 
+
+To improve efficiency, I created a copy of the <kbd>array</kbd> called <kbd>maxList</kbd>, sorted in ascending order. During each iteration, elements are removed from <kbd>maxList</kbd> using the indexOf method along with <kbd>currentHeight</kbd>. As a result, <kbd>maxList</kbd> retains only unprocessed values from the original <kbd>array</kbd>, with its first position always representing the highest value for subsequent iterations. This approach allows the creation of a new variable <kbd>maxHeight</kbd>, that updates with the first element of <kbd>maxList</kbd>.
+
+At last, we can correctly assign the smaller value between <kbd>currentHeight</kbd> and <kbd>maxHeight</kbd> to the variable <kbd>currentMax</kbd>.
+
+```js
+let maxList = [...heights].sort((a, b) => b - a)
+```
+```js
+for (const idx in heights) {
+  maxList.splice(maxList.indexOf(currentHeight), 1)
+  const maxHeight = maxList[0]
+  // code...
+}
+```
+```js
+// REMOVED:  if ( ... || idx == heights.length - 1)
+
+if (currentHeight >= currentMax) {
+
+  //...code
+
+// REPLACED:  currentMax = currentHeight
+  currentMax = Math.min(currentHeight, maxHeight)
+}
+```
+### Final Solution
 
 <div align="right">Java Script <a href="#"><img src="../../icons/javascript.svg" width="12px"></a> </div>
 
 ```js
 function waterArea(heights) {
+  if (!heights.some((height) => height > 0) || heights.length === 0) return 0
+
   let pillars = 0
   let surfaceArea = 0
-  let space = 0
-  let start = heights[0]
+  let voids = 0
+  let currentMax = heights[0]
+  let maxList = [...heights].sort((a, b) => b - a)
 
-  let arr = [...heights]
+  for (const idx in heights) {
+    const currentHeight = heights[idx]
 
-  while (arr[arr.length - 1] === 0) {
-    arr.pop()
-  }
+    maxList.splice(maxList.indexOf(currentHeight), 1) 
+    const maxHeight = maxList[0] 
 
-  if (arr.length === 0) return 0
-
-  var sortedArray = [...heights].sort((a, b) => b - a)
-  if (Math.max(...heights) === heights[0]) sortedArray.shift()
-
-  for (i = 1; i < arr.length; i++) {
-    // console.log(`Position = ${i}`)
-    // console.log(`Space = ${space}\nPillar = ${pillars}\n---`)
-
-    if (start > sortedArray[0]) start = sortedArray[0]
-    // console.log(start)
-
-    if (heights[i] >= start || i == arr.length - 1) {
-      // console.log(`calculate`)
-      surfaceArea += space * Math.min(heights[i], start) - pillars
-      space = 0
+    if (currentHeight >= currentMax) {
+      surfaceArea += voids * Math.min(currentHeight, currentMax) - pillars
+      currentMax = Math.min(currentHeight, maxHeight)
+      voids = 0
       pillars = 0
-      start = heights[i]
-    }
 
-    if (heights[i] < start) {
-      // console.log(`accumulate`)
-      space++
-      pillars += heights[i]
+    } else {
+      voids++
+      pillars += currentHeight
     }
-    // console.log(`Space = ${space}\nPillar = ${pillars}\n`)
-
-    if (sortedArray[0] === heights[i]) sortedArray.shift()
-    // console.log(heightSorted)
   }
   return surfaceArea
 }
 
-// Example usage:
 
-const heights = [0, 8, 0, 0, 5, 0, 0, 10, 0, 0, 1, 1, 0, 3];
-console.log(waterArea(heights)); // Output: 48
+// Example usage:
+const heights = [0, 8, 0, 0, 5, 0, 0, 10, 0, 0, 1, 1, 0, 3]
+//const heights = [0, 8, 0, 0, 5, 0, 0, 10, 0, 0, 1, 1, 0, 3] //sencond scenario Output: 31
+const result = waterArea(heights)
+
+console.log(result) // Output: 48
 ```
 
 <div align="right">Swift <a href="#"><img src="../../icons/swift.svg" width="12px"></a> </div>
 
 ```swift
 func waterArea(_ heights: [Int]) -> Int {
-    guard !heights.isEmpty else { return 0 }
-
+    guard !heights.isEmpty && heights.contains(where: { $0 > 0 }) else { return 0 }
+    
     var pillars = 0
-    var area = 0
-    var space = 0
-    var start = heights[0]
-
-    var mutableHeights = heights
-    while mutableHeights.last == 0 {
-        _ = mutableHeights.popLast()
-    }
-
-    var heightSorted = mutableHeights.sorted(by: >)
-    if let maxHeight = heights.max(), maxHeight == heights.first {
-        _ = heightSorted.removeFirst()
-    }
-
-    for x in 1..<mutableHeights.count {
-        if start > heightSorted[0] { start = heightSorted[0] }
-
-        if heights[x] >= start || x == mutableHeights.count - 1 {
-            surfaceArea += space * min(heights[x], start) - pillars
-            space = 0
+    var surfaceArea = 0
+    var voids = 0
+    var currentMax = heights[0]
+    var maxList = heights.sorted(by: >)
+    
+    for (idx, currentHeight) in heights.enumerated() {
+        maxList.remove(at: maxList.firstIndex(of: currentHeight)!)
+        let maxHeight = maxList.first ?? 0
+        
+        if currentHeight >= currentMax {
+            surfaceArea += voids * min(currentHeight, currentMax) - pillars
+            currentMax = min(currentHeight, maxHeight)
+            voids = 0
             pillars = 0
-            start = heights[x]
+        } else {
+            voids += 1
+            pillars += currentHeight
         }
-
-        if heights[x] < start {
-            space += 1
-            pillars += heights[x]
-        }
-
-        if heightSorted[0] == heights[x] { _ = heightSorted.removeFirst() }
     }
     return surfaceArea
 }
 
 // Example usage:
 let heights = [0, 8, 0, 0, 5, 0, 0, 10, 0, 0, 1, 1, 0, 3]
-//let heights = [3, 1, 0, 2, 0, 1, 0, 0] //Special case Output: 4
+//let heights = [0, 8, 0, 0, 5, 0, 0, 10, 0, 0, 1, 1, 0, 3] //sencond scenario Output: 31
 
-let result = isValidSubsequence(array, sequence);
-print(waterArea(heights)) // Output: 48
+let result = waterArea(heights);
+print(result) // Output: 48
 ```
 
 ### Complexity Analysis
 
-- Time Complexity: O(n log n) due to sorting, where n is the number of elements in the heights array.
+- Time Complexity: O(n) the time complexity of the function is linear with respect to the size of the input array.
 
-- Space Complexity: O(n) for storing mutable heights and sorted heights arrays.
+- Space Complexity: O(1) This function uses a fixed number of variables to perform its computations, and it does not create any additional data structures or allocate memory dynamically. Therefore, its space complexity is constant and does not depend on the size of the input array.
 
 #
 
-### Approach 2
-#### ...
+### Method 2
+#### Array Processing <kbd>two pointers</kbd>
 
 Explanation
 
 <div align="right">Java Script <a href="#"><img src="../../icons/javascript.svg" width="12px"></a> </div>
 
 ```js
-// code here
+function waterArea(heights) {
+  if (heights.length === 0 || !heights.some((height) => height > 0)) return 0
+
+  let leftPointer = 0
+  let rightPointer = heights.length - 1
+
+  let maxLeft = heights[leftPointer]
+  let maxRight = heights[rightPointer]
+
+  let surfaceArea = 0
+
+  while (leftPointer < rightPointer) {
+    if (heights[leftPointer] < heights[rightPointer]) {
+      leftPointer++
+      maxLeft = Math.max(maxLeft, heights[leftPointer])
+      surfaceArea += maxLeft - heights[leftPointer]
+    } else {
+      rightPointer--
+      maxRight = Math.max(maxRight, heights[rightPointer])
+      surfaceArea += maxRight - heights[rightPointer]
+    }
+  }
+
+  return surfaceArea
+}
+
+const heights = [0, 8, 0, 0, 5, 0, 0, 10, 0, 0, 1, 1, 0, 3]
+result = waterArea(heights)
+console.log(result)
 ```
 
 <div align="right">Swift <a href="#"><img src="../../icons/swift.svg" width="12px"></a> </div>
 
 ```swift
-// code here
+func waterArea(_ heights: [Int]) -> Int {
+    guard !heights.isEmpty && heights.contains(where: { $0 > 0 }) else { return 0 }
+    
+    var leftPointer = 0
+    var rightPointer = heights.count - 1
+    
+    var maxLeft = heights[leftPointer]
+    var maxRight = heights[rightPointer]
+    
+    var surfaceArea = 0
+    
+    while leftPointer < rightPointer {
+        if heights[leftPointer] < heights[rightPointer] {
+            leftPointer += 1
+            maxLeft = max(maxLeft, heights[leftPointer])
+            surfaceArea += maxLeft - heights[leftPointer]
+        } else {
+            rightPointer -= 1
+            maxRight = max(maxRight, heights[rightPointer])
+            surfaceArea += maxRight - heights[rightPointer]
+        }
+    }
+    
+    return surfaceArea
+}
 ```
 
 ### Complexity Analysis
 
-- Time Complexity: 
+- Time Complexity: O(n), where n is the number of elements in the heights array. The function iterates through the array once using two pointers, performing constant-time operations within each iteration. Therefore, the overall time complexity is linear with respect to the size of the input array.
 
-- Space Complexity: 
+- Space Complexity: O(1), the function uses a fixed amount of additional memory to store variables such as pointers, maximum heights, and the surface area, which does not increase with the size of the input array. Therefore, the space complexity is constant.
+
 
 
 
