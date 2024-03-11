@@ -5,7 +5,7 @@
 You are given an array of non-negative integers where each non-zero integer represents the height of a pillar of width `1`. Imagine water being poured over all of the pillar; write a fucntion that returns the surface area of the water trapped between the pillars viewed from the front. Note that spilled water should be ignored.
 
 ## Solutions
-1. <a href="#method-1">Array Manipulation</a> <kbd>single loop</kbd> 💡
+1. <a href="#method-1">Array Manipulation</a> <kbd>sort + single loop</kbd> 💡
 2. <a href="#method-2">Array Processing</a> <kbd>two pointers</kbd> 🎯
 
 ### Visual Representation
@@ -206,7 +206,7 @@ print(result) // Output: 48
 
 - Time Complexity: O(n) the time complexity of the function is linear with respect to the size of the input array.
 
-- Space Complexity: O(1) This function uses a fixed number of variables to perform its computations, and it does not create any additional data structures or allocate memory dynamically. Therefore, its space complexity is constant and does not depend on the size of the input array.
+- Space Complexity: O(n log n) due to the sorting step, but the space complexity is O(1). sSince we’re not using any additional data structures.This function uses a fixed number of variables to perform its computations, and it does not create any additional data structures or allocate memory dynamically. Therefore, its space complexity is constant and does not depend on the size of the input array.
 
 #
 
@@ -214,6 +214,8 @@ print(result) // Output: 48
 #### Array Processing <kbd>two pointers</kbd>
 
 Explanation
+
+// work in progress...
 
 <div align="right">Java Script <a href="#"><img src="../../icons/javascript.svg" width="12px"></a> </div>
 
